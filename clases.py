@@ -18,9 +18,19 @@ class Paciente():
     def verCedula(self):
         return self.__cedula
     def verImplantes(self):
-        for i in self.__implantes: 
-            print('implante:', i.verNombre())
+        for i in self.__implantes.values(): 
+            print(f'{i}\n')
     
+    def eliminarImplante(self,c): 
+        self.__implantes.pop(c)
+        return True
+    
+    def modificarImplante(self,nuevoImplante):
+        self.__implantes[nuevoImplante.verNombre()] = nuevoImplante
+
+
+
+
 class Marcapasos():
     def __init__(self) -> None:
         self.__nombre = 'MARCAPASO'
