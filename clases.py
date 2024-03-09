@@ -22,7 +22,7 @@ class Paciente():
         return self.__cedula
     
     def verImplantes(self):
-        for i in self.__implantes.values(): 
+        for i in self.__implantes: 
             print('implante:', i.verNombre())
     
 class Marcapasos():
@@ -33,6 +33,7 @@ class Marcapasos():
         self.__FrecEstimulacion = 0
         self.__fechaImplantacion = None
         self.__doctor = ''
+        self.__estado = ''
     
     def asignarNumElectrodos(self, c):
         self.__NumElectrodos = c
@@ -47,10 +48,13 @@ class Marcapasos():
         self.__fechaImplantacion = fecha  
 
     def asignarDoctor(self, doc):
-        self.__doctor = doc         
+        self.__doctor = doc        
+
+    def asignarEstado(self,e):
+        self.__estado = e 
     
     def __str__(self) -> str:
-        return f"""        MARCAPASO:\nNumero de electrodos: {self.__NumElectrodos}\nConexion: {self.__Conexion}\nFrecuencia de Estimulacion: {self.__FrecEstimulacion}\nFecha de implantacion: {self.__fechaImplantacion}\nDoctor encargado: {self.__doctor}"""
+        return f"""        MARCAPASO:\nNumero de electrodos: {self.__NumElectrodos}\nConexion: {self.__Conexion}\nFrecuencia de Estimulacion: {self.__FrecEstimulacion}\nFecha de implantacion: {self.__fechaImplantacion}\nDoctor encargado: {self.__doctor} \nEstado del Implante: {self.__estado}"""
     
     
 class StentCoronario():
@@ -61,26 +65,24 @@ class StentCoronario():
         self.__material = ""
         self.__fechaImplantacion = None
         self.__doctor = ''
+        self.__estado = ''
 
 
     def asignarLongitud(self,c):
         self.__longitud = c
-
     def asignarDiametro(self, c):
         self.__diametro = c
-
     def asignarMaterial(self, c):
         self.__material = c
-
     def asignarFechaImplantacion(self, fecha):
         self.__fechaImplantacion = fecha  
-
     def asignarDoctor(self, doc):
-        self.__doctor = doc   
-
+        self.__doctor = doc
+    def asignarEstado(self,e):
+        self.__estado = e 
     
     def __str__(self) -> str:
-        return f"""         STENT CORONARIO:\nLongitud: {self.__longitud}\nDiametro: {self.__diametro}\nMaterial: {self.__material}\nFecha de implantacion: {self.__fechaImplantacion}\nDoctor encargado: {self.__doctor}"""
+        return f"""         STENT CORONARIO:\nLongitud: {self.__longitud}\nDiametro: {self.__diametro}\nMaterial: {self.__material}\nFecha de implantacion: {self.__fechaImplantacion}\nDoctor encargado: {self.__doctor}\nEstado del Implante: {self.__estado}"""
 
 class ImplanteDental():
     def __init__(self) -> None:
@@ -90,8 +92,9 @@ class ImplanteDental():
         self.__material = "" 
         self.__fechaImplantacion = None
         self.__doctor = '' 
+        self.__estado = ''
            
-    
+
     def asignarForma(self, f):
         self.__forma = f
     def asignarSistemaFijacion(self,s):
@@ -102,9 +105,11 @@ class ImplanteDental():
         self.__fechaImplantacion = fecha  
     def asignarDoctor(self, doc):
         self.__doctor = doc 
+    def asignarEstado(self,e):
+        self.__estado = e 
 
     def __str__(self) -> str:
-        return f'   {self.__nombre}\nForma: {self.__forma}\nSistema de Fijación: {self.__sistemaFijacion}\nMaterial: {self.__material}\nFecha de Implantacion: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}\n'  
+        return f'   {self.__nombre}\nForma: {self.__forma}\nSistema de Fijación: {self.__sistemaFijacion}\nMaterial: {self.__material}\nFecha de Implantacion: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}\nEstado del Implante: {self.__estado}'  
 
 
 
@@ -115,13 +120,20 @@ class ImplanteRodilla():
         self.__forma = ''
         self.__fechaImplantacion = None
         self.__doctor = ''
+        self.__estado = ''
         
     def asignarMaterial(self,c):
         self.__material = c
     def asignarForma(self, c):
         self.__forma = c
+    def asignarFechaImplantacion(self, fecha):
+        self.__fechaImplantacion = fecha  
+    def asignarDoctor(self, doc):
+        self.__doctor = doc 
+    def asignarEstado(self,e):
+        self.__estado = e 
     def __str__(self) -> str:
-        return f'      {self.__nombre}\nMaterial: {self.__material}\nForma: {self.__forma}\nFecha de implantación: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}'
+        return f'      {self.__nombre}\nMaterial: {self.__material}\nForma: {self.__forma}\nFecha de implantación: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}\nEstado del Implante: {self.__estado}'
         
 class ImplanteCadera(ImplanteRodilla):
     def __init__(self) -> None:
