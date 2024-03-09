@@ -117,6 +117,7 @@ class ImplanteRodilla():
         self.__nombre = 'IMPLANTE DE RODILLA'
         self.__material =''
         self.__forma = ''
+        self.__size = ''
         self.__fechaImplantacion = None
         self.__doctor = ''
         self.__estado = ''
@@ -131,8 +132,10 @@ class ImplanteRodilla():
         self.__doctor = doc 
     def asignarEstado(self,e):
         self.__estado = e 
+    def asignarSize(self,s):
+        self.__size = s
     def __str__(self) -> str:
-        return f'      {self.__nombre}\nMaterial: {self.__material}\nForma: {self.__forma}\nFecha de implantación: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}\nEstado del Implante: {self.__estado}'
+        return f'      {self.__nombre}\nMaterial: {self.__material}\nForma: {self.__forma}\nTamaño: {self.__size}\nFecha de implantación: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}\nEstado del Implante: {self.__estado}'
         
 class ImplanteCadera(ImplanteRodilla):
     def __init__(self) -> None:
