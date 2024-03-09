@@ -20,6 +20,8 @@ class Paciente():
     def verImplantes(self):
         for i in self.__implantes.values(): 
             print(f'{i}\n')
+    def lenImplantes(self):
+        return len(self.__implantes)
     
     def eliminarImplante(self,c): 
         self.__implantes.pop(c)
@@ -53,6 +55,9 @@ class Marcapasos():
         self.__doctor = doc        
     def asignarEstado(self,e):
         self.__estado = e 
+    def verNombre(self):
+        return self.__nombre
+    
 
     def __str__(self) -> str:
         return f"""        MARCAPASO:\nNumero de electrodos: {self.__NumElectrodos}\nConexion: {self.__Conexion}\nFrecuencia de Estimulacion: {self.__FrecEstimulacion}\nFecha de implantacion: {self.__fechaImplantacion}\nDoctor encargado: {self.__doctor} \nEstado del Implante: {self.__estado}"""
@@ -81,6 +86,8 @@ class StentCoronario():
         self.__doctor = doc
     def asignarEstado(self,e):
         self.__estado = e 
+    def verNombre(self):
+        return self.__nombre
     
     def __str__(self) -> str:
         return f"""         STENT CORONARIO:\nLongitud: {self.__longitud}\nDiametro: {self.__diametro}\nMaterial: {self.__material}\nFecha de implantacion: {self.__fechaImplantacion}\nDoctor encargado: {self.__doctor}\nEstado del Implante: {self.__estado}"""
@@ -108,6 +115,8 @@ class ImplanteDental():
         self.__doctor = doc 
     def asignarEstado(self,e):
         self.__estado = e 
+    def verNombre(self):
+        return self.__nombre
 
     def __str__(self) -> str:
         return f'   {self.__nombre}\nForma: {self.__forma}\nSistema de Fijación: {self.__sistemaFijacion}\nMaterial: {self.__material}\nFecha de Implantacion: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}\nEstado del Implante: {self.__estado}'  
@@ -134,6 +143,9 @@ class ImplanteRodilla():
         self.__estado = e 
     def asignarSize(self,s):
         self.__size = s
+    def verNombre(self):
+        return self.__nombre
+    
     def __str__(self) -> str:
         return f'      {self.__nombre}\nMaterial: {self.__material}\nForma: {self.__forma}\nTamaño: {self.__size}\nFecha de implantación: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}\nEstado del Implante: {self.__estado}'
         

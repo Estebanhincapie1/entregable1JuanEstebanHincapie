@@ -1,15 +1,11 @@
 def obtener_nombre():
-    nombre = input("Por favor, ingresa tu nombre: ")
-    
-    # Validar que el nombre no contenga caracteres especiales ni números
-    if not nombre.replace(" ", "").isalpha():
-        print("El nombre no puede contener caracteres especiales, números ni espacios adicionales.")
-        return obtener_nombre()  # Llamada recursiva para solicitar un nuevo nombre
-    else:
-        # Convertir el nombre a minúsculas
-        nombre = nombre.lower()
-        return nombre
-
+    while True:
+        nombre = input("Por favor, ingresa el nombre: ")
+        if nombre.replace(" ", "").isalpha() == True:
+            return nombre
+        else:
+            print('Ingrese un dato valido, sin caracteres raros')
+            continue
 
 from datetime import datetime
 
@@ -23,10 +19,10 @@ def validar_fecha(fecha_str):
         return False, None
 
 
-def pedir_fecha():
+def pedir_fecha(mns):
     fecha_valida = False
     while not fecha_valida:
-        fecha_str = input("Por favor, introduce una fecha en formato dd/mm/aaaa: ")
+        fecha_str = input(mns +"Por favor, introduce una fecha en formato dd/mm/aaaa: ")
         fecha_valida, fecha = validar_fecha(fecha_str)
         if not fecha_valida:
             print("Fecha inválida. Por favor, inténtalo de nuevo.")
