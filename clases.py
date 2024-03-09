@@ -7,20 +7,16 @@ class Paciente():
     #        GETTERS
     def asignarNombre(self, nombre):
         self.__nombre = nombre.upper()
-
     def asignarCedula(self, cedula):
         self.__cedula = cedula
-
     def asignarImplantes(self, implante):
         self.__implantes[implante.verNombre()] = implante  
 
     #        SETTERS   
     def verNombre(self):
         return self.__nombre
-    
     def verCedula(self):
         return self.__cedula
-    
     def verImplantes(self):
         for i in self.__implantes: 
             print('implante:', i.verNombre())
@@ -37,22 +33,17 @@ class Marcapasos():
     
     def asignarNumElectrodos(self, c):
         self.__NumElectrodos = c
-
     def asignarConexion(self, c):
         self.__Conexion = c
-
     def asignarFRECUENCIA(self, c):
         self.__FrecEstimulacion = c
-    
     def asignarFechaImplantacion(self, fecha):
         self.__fechaImplantacion = fecha  
-
     def asignarDoctor(self, doc):
         self.__doctor = doc        
-
     def asignarEstado(self,e):
         self.__estado = e 
-    
+
     def __str__(self) -> str:
         return f"""        MARCAPASO:\nNumero de electrodos: {self.__NumElectrodos}\nConexion: {self.__Conexion}\nFrecuencia de Estimulacion: {self.__FrecEstimulacion}\nFecha de implantacion: {self.__fechaImplantacion}\nDoctor encargado: {self.__doctor} \nEstado del Implante: {self.__estado}"""
     
@@ -111,8 +102,6 @@ class ImplanteDental():
     def __str__(self) -> str:
         return f'   {self.__nombre}\nForma: {self.__forma}\nSistema de Fijación: {self.__sistemaFijacion}\nMaterial: {self.__material}\nFecha de Implantacion: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}\nEstado del Implante: {self.__estado}'  
 
-
-
 class ImplanteRodilla():
     def __init__(self) -> None:
         self.__nombre = 'IMPLANTE DE RODILLA'
@@ -143,7 +132,6 @@ class ImplanteCadera(ImplanteRodilla):
     def __str__(self) -> str:
         return super().__str__() 
     
-
 class Sistema():
     def __init__(self) -> None:
         self.__pacientes = {}
@@ -161,8 +149,7 @@ class Sistema():
         self.__pacientes[newPac.verCedula()]= newPac
 
     def verPaciente(self, cedula):
-        return self.__pacientes[cedula]
-
+        return self.__pacientes.get(cedula) 
         
     def verificarExistencia(self, cedula):
         if cedula in self.__pacientes:
