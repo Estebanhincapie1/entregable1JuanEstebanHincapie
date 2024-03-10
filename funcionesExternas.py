@@ -46,3 +46,5 @@ def datoFloat(mns):
         except ValueError:
             print('dato erroneo')
             continue
+
+
