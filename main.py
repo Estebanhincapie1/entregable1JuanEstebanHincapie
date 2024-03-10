@@ -172,4 +172,5 @@ def main():
         elif x == '5':
             print('-----------------------SALIENDO DEL SISTEMA----------------------------')
             break
-main()
+if __name__ == "__main__":
+   main()
