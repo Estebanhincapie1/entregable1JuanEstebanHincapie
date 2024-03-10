@@ -30,6 +30,8 @@ class Paciente():
     def modificarImplante(self,nuevoImplante):
         self.__implantes[nuevoImplante.verNombre()] = nuevoImplante
 
+    def __str__(self) -> str:
+        return f'Nombre del paciente: {self.verNombre()}\nCedula: {self.verCedula()}\n Implantes {self.verImplantes()}'
 
 
 
@@ -163,12 +165,11 @@ class Sistema():
     
     def ingresarPaciente(self, paciente):
         self.__pacientes[paciente.verCedula()] = paciente
-        print('PACIENTE AGREGADO CORRECTAMENTE')
+        print('\n---------PACIENTE AGREGADO CORRECTAMENTE----------')
         return True
 
     def eliminarPaciente(self, cedula):
-            self.__pacientes.pop(cedula)
-            return True
+        self.__pacientes.pop(cedula)
 
     def modificarPaciente(self, newPac):  
         self.__pacientes[newPac.verCedula()]= newPac

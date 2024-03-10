@@ -9,14 +9,15 @@ def main():
         def menu():
             return input('¡BIENVENIDO!\nIngrese su desicion:\n\n1.Agregar un paciente.\n2.Eliminar un paciente\n3.Ver un paciente\n4.Modificar un paciente\n5.Salir\n opcion seleccionada: ')
         if menu() == '1':
-            cedula = datoEntero('\nCédula: ')
+            cedula = datoEntero('Cédula: ')
             if sis.verificarExistencia(cedula) == True:
                 print(f'El paciente con cedula {cedula} ya se encuentra registrado')
                 print(sis.verPaciente(cedula))
                 continue
             else:
                 p = Paciente()
-                nombre = obtener_nombre()
+                p.asignarCedula(cedula)
+                p.asignarNombre(obtener_nombre())
 
                 nImplantes = datoEntero('Cuantos implantes tiene el paciente: ')
                 while p.lenImplantes() != nImplantes:
@@ -76,15 +77,21 @@ def main():
 
                         p.asignarImplantes(imc)
                         continue
-                    
                     else:
                         continue
-                print('\nAGREGADO CON EXITO\n')    
-                menu()
-        elif menu() == '2':
-            
-        elif menu() == '3':
-
-
-
-                    
+                sis.ingresarPaciente(p)
+                
+        # if menu() == '2':
+        #     cedula = int(input('Ingrese la cédula del paciente a eliminar: '))
+        #     if sis.verificarExistencia(cedula) == True:
+        #         print(f'¡¡¡¡¡¡El paciente con la cedula {cedula} NO se encuentra registrado!! \n')
+        #     else:
+        #         sis.eliminarPaciente(cedula)
+        #         print('\n---------------------Paciente eliminado con exito.--------------------\n')
+        
+        if menu() == '3':
+            buscar = datoEntero('ingrese la cedula a buscar')
+            if sis.verificarExistencia(buscar) == True:
+                print(sis.verPaciente(buscar))
+        
+main()
