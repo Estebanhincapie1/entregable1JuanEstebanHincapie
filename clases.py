@@ -20,9 +20,12 @@ class Paciente():
     def verImplantes(self):
         for i in self.__implantes.values(): 
             print(f'{i}\n')
+
     def lenImplantes(self):
         return len(self.__implantes)
     
+    #      Metodos asociados al diccionario contenedor de los implantes
+
     def eliminarImplante(self,c): 
         self.__implantes.pop(c)
         return True
@@ -31,7 +34,7 @@ class Paciente():
         self.__implantes[nuevoImplante.verNombre()] = nuevoImplante
 
     def __str__(self) -> str:
-        return f'Nombre del paciente: {self.verNombre()}\nCedula: {self.verCedula()}\n Implantes {self.verImplantes()}'
+        return f'      Nombre del paciente: {self.verNombre()}\n      Cedula: {self.verCedula()}\n      Implantes: {self.verImplantes()}'
 
 
 
@@ -62,7 +65,7 @@ class Marcapasos():
     
 
     def __str__(self) -> str:
-        return f"""        MARCAPASO:\nNumero de electrodos: {self.__NumElectrodos}\nConexion: {self.__Conexion}\nFrecuencia de Estimulacion: {self.__FrecEstimulacion}\nFecha de implantacion: {self.__fechaImplantacion}\nDoctor encargado: {self.__doctor} \nEstado del Implante: {self.__estado}"""
+        return f"""      MARCAPASO:\n      Numero de electrodos: {self.__NumElectrodos}\n      Conexion: {self.__Conexion}\n      Frecuencia de Estimulacion: {self.__FrecEstimulacion}\n      Fecha de implantacion: {self.__fechaImplantacion}\n      Doctor encargado: {self.__doctor} \n      Estado del Implante: {self.__estado}"""
     
     
 class StentCoronario():
@@ -92,7 +95,7 @@ class StentCoronario():
         return self.__nombre
     
     def __str__(self) -> str:
-        return f"""         STENT CORONARIO:\nLongitud: {self.__longitud}\nDiametro: {self.__diametro}\nMaterial: {self.__material}\nFecha de implantacion: {self.__fechaImplantacion}\nDoctor encargado: {self.__doctor}\nEstado del Implante: {self.__estado}"""
+        return f"      STENT CORONARIO:\n      Longitud: {self.__longitud}\n      Diametro: {self.__diametro}\n      Material: {self.__material}\n      Fecha de implantacion: {self.__fechaImplantacion}\n      Doctor encargado: {self.__doctor}\n      Estado del Implante: {self.__estado}"
 
 class ImplanteDental():
     def __init__(self) -> None:
@@ -121,7 +124,7 @@ class ImplanteDental():
         return self.__nombre
 
     def __str__(self) -> str:
-        return f'   {self.__nombre}\nForma: {self.__forma}\nSistema de Fijación: {self.__sistemaFijacion}\nMaterial: {self.__material}\nFecha de Implantacion: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}\nEstado del Implante: {self.__estado}'  
+        return f'   {self.__nombre}\n      Forma: {self.__forma}\n      Sistema de Fijación: {self.__sistemaFijacion}\n      Material: {self.__material}\n      Fecha de Implantacion: {self.__fechaImplantacion}\n      Doctor Responsable: {self.__doctor}\n      Estado del Implante: {self.__estado}'  
 
 class ImplanteRodilla():
     def __init__(self) -> None:
@@ -149,7 +152,7 @@ class ImplanteRodilla():
         return self.__nombre
     
     def __str__(self) -> str:
-        return f'      {self.__nombre}\nMaterial: {self.__material}\nForma: {self.__forma}\nTamaño: {self.__size}\nFecha de implantación: {self.__fechaImplantacion}\nDoctor Responsable: {self.__doctor}\nEstado del Implante: {self.__estado}'
+        return f'       {self.__nombre}\n      Material: {self.__material}\n      Forma: {self.__forma}\n      Tamaño: {self.__size}\n      Fecha de implantación: {self.__fechaImplantacion}\n      Doctor Responsable: {self.__doctor}\n      Estado del Implante: {self.__estado}'
         
 class ImplanteCadera(ImplanteRodilla):
     def __init__(self) -> None:
@@ -175,7 +178,8 @@ class Sistema():
         self.__pacientes[newPac.verCedula()]= newPac
 
     def verPaciente(self, cedula):
-        return self.__pacientes.get(cedula) 
+        return self.__pacientes[cedula]
+
         
     def verificarExistencia(self, cedula):
         if cedula in self.__pacientes:
